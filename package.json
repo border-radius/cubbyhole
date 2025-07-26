@@ -1,0 +1,19 @@
+{
+  "name": "cubbyhole",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.test.js"
+  },
+  "keywords": [],
+  "author": "border-radius",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "mocha": "^11.7.1"
+  },
+  "dependencies": {
+    "pocketbase": "^0.26.2"
+  }
+}
