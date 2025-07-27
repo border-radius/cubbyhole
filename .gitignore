@@ -2,3 +2,4 @@ node_modules
 pb_data
 pb_test
 pb_public/index.js
+pb_public/index.css

@@ -6,8 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "./pocketbase serve",
-    "watch": "esbuild --watch --bundle --minify --target=es6 src/index.tsx --outfile=pb_public/index.js",
-    "build": "tsc --noEmit && esbuild --bundle --minify --target=es6 src/index.tsx --outfile=pb_public/index.js",
+    "build_css": "npx @tailwindcss/cli -m -i ./src/index.css -o ./pb_public/index.css",
+    "watch": "npm run build_css && esbuild --watch --bundle --minify --target=es6 src/index.tsx --outfile=pb_public/index.js",
+    "build": "tsc --noEmit && npm run build_css && esbuild --bundle --minify --target=es6 src/index.tsx --outfile=pb_public/index.js",
     "test": "mocha tests/*.test.js"
   },
   "keywords": [],
@@ -19,7 +20,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
     "pocketbase": "^0.26.2",
-    "preact": "^10.26.9"
+    "preact": "^10.26.9",
+    "tailwindcss": "^4.1.11"
   }
 }
