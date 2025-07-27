@@ -5,15 +5,29 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "./pocketbase serve",
+    "watch_css": "npx @tailwindcss/cli -m -i ./src/index.css -o ./pb_public/index.css --watch",
+    "watch_js": "esbuild --watch --bundle --minify --target=es6 src/index.tsx --outfile=pb_public/index.js",
+    "watch": "concurrently --kill-others 'npm run watch_css' 'npm run watch_js'",
+    "build_css": "npx @tailwindcss/cli -m -i ./src/index.css -o ./pb_public/index.css",
+    "build_js": "tsc --noEmit && esbuild --bundle --minify --target=es6 src/index.tsx --outfile=pb_public/index.js",
+    "build": "npm run build_css && npm run build_js",
     "test": "mocha tests/*.test.js"
   },
   "keywords": [],
   "author": "border-radius",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "mocha": "^11.7.1"
+    "concurrently": "^9.2.0",
+    "esbuild": "^0.25.8",
+    "mocha": "^11.7.1",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "pocketbase": "^0.26.2"
+    "@tailwindcss/cli": "^4.1.11",
+    "daisyui": "^5.0.47",
+    "pocketbase": "^0.26.2",
+    "preact": "^10.26.9",
+    "tailwindcss": "^4.1.11"
   }
 }
